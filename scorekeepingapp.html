@@ -14,17 +14,23 @@
     <script type="text/babel">
         let score = 0;
         let wicket = 0;
-        function clickOne(){
-            alert("1 is clicked");
+        // function clickOne(){
+        //     // alert("1 is clicked");
+        // }
+
+        function addOne(){
+            score++;
+            //  rerender the app to show changes 
+            //  but the html will be called again and again so wee need to use the virtual dom 
+            
+            rootElement.render(<App />)
         }
         const App = () => (
             <>
                 <h1> SCORE KEEPER</h1>
                 <h2>SCORE {score}/{wicket}</h2>
                 <div>
-                    //  on click pass the refrence of the function 
-                    //  thats how event handeling is done in tje jsx
-                    <button onClick={clickOne} > 1</button>
+                    <button onClick={addOne} > 1</button>
                     <button> 2</button>
                     <button> 3</button>
                     <button> 4</button>
