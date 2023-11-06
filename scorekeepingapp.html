@@ -77,12 +77,26 @@
                 ))}
                 </div>
         )
+
+        function handelSubmit(event){
+            event.preventDefault();
+        }
+        const Form =() => (
+            <form onSubmit={handelSubmit}>
+                <input/>
+                <input/>
+                <button> Submit </button>
+                </form>
+        )
         const App = () => (
             <>
+            <hr/>
                 <h1> SCORE KEEPER</h1>
                 <h2>SCORE {score}/{wicket}</h2>
                 <ScoreButtons/>
-                <Result/>
+                <br />
+                <Form/>
+                <hr/>
             </>
         )
         //  rendering the app in thr root element 
