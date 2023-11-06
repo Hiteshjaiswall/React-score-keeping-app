@@ -84,18 +84,25 @@
                 </div>
         )
         function handelSubmit(event){
-            
             event.preventDefault();
             //  using unshift than push
             //  put it in the strating of the array 
             //  we want the current ball to be updated 
-            ballWiseRes.unshift(Hit);
+            ballWiseRes.unshift(
+                //  to get comments also now there also a proffesiional way 
+            // <span> {Hit}, {inputRef.current.value} </span>
+            //  we are using template literals 
+            <span> {`${Hit}, ${inputRef.current.value} `} </span>
+                );
             if(Hit=="W"){
                 wicket++;
             }else{
                 score+=Hit;
             }
             console.log(inputRef.current.value);
+            Hit=0;
+            // uncontrol component in refrence 
+            inputRef.current.value="";
             rootElement.render(<App />)
         }
         const Form =() => (
