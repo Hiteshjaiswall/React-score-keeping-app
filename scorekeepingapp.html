@@ -16,6 +16,7 @@
         let wicket = 0;
         let ballWiseRes=[];
         let Hit=0;
+        let inputRef=React.createRef();
         // function clickOne(){
         //     // alert("1 is clicked");
         // }
@@ -83,18 +84,24 @@
                 </div>
         )
         function handelSubmit(event){
+            
             event.preventDefault();
             //  using unshift than push
             //  put it in the strating of the array 
             //  we want the current ball to be updated 
             ballWiseRes.unshift(Hit);
+            if(Hit=="W"){
+                wicket++;
+            }else{
+                score+=Hit;
+            }
+            console.log(inputRef.current.value);
             rootElement.render(<App />)
-
         }
         const Form =() => (
         <form onSubmit={handelSubmit}>
                 <input value={Hit}/>
-                <input/>
+                <input ref={inputRef} placeholder="Add a comment" />
                 <button> Submit </button>
                 </form>
                 )
