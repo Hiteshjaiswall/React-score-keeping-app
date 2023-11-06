@@ -19,7 +19,6 @@
         // function clickOne(){
         //     // alert("1 is clicked");
         // }
-
         // function addOne(){
         //     score++;
         //     //  rerender the app to show changes 
@@ -85,6 +84,11 @@
         )
         function handelSubmit(event){
             event.preventDefault();
+            //  using unshift than push
+            //  put it in the strating of the array 
+            //  we want the current ball to be updated 
+            ballWiseRes.unshift(Hit);
+            rootElement.render(<App />)
 
         }
         const Form =() => (
@@ -103,6 +107,9 @@
                 <br />
                 <Form/>
                 <hr/>
+                {ballWiseRes.map((res, index) => (
+                    <p key={index}> {res}</p>
+                ))}
             </>
         )
         //  rendering the app in thr root element 
