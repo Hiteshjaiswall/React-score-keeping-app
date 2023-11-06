@@ -15,6 +15,7 @@
         let score = 0;
         let wicket = 0;
         let ballWiseRes=[];
+        let Hit=0;
         // function clickOne(){
         //     // alert("1 is clicked");
         // }
@@ -35,21 +36,26 @@
         // }
 //  using inclien function 
         function addScore(num){
-            if(wicket<10){
-                ballWiseRes.push(num);
-                score+= num;
-                console.log(ballWiseRes)
-                rootElement.render(<App />)
-            }
+            // if(wicket<10){
+            //     ballWiseRes.push(num);
+            //     score+= num;
+            //     console.log(ballWiseRes)
+            //     rootElement.render(<App />)
+            // }
+            Hit=num;
+            console.log(Hit);
+            rootElement.render(<App />)
         
         }
         function addWicket(){
-            if(wicket<10){
-                ballWiseRes.push("W");
-                wicket++;
-                console.log(ballWiseRes)
-                rootElement.render(<App />)
-            }
+            // if(wicket<10){
+            //     ballWiseRes.push("W");
+            //     wicket++;
+            //     console.log(ballWiseRes)
+            //     rootElement.render(<App />)
+            // }
+            Hit="W"
+            rootElement.render(<App />)
         }
         const ScoreButtons=()=>(
             <div>
@@ -77,17 +83,17 @@
                 ))}
                 </div>
         )
-
         function handelSubmit(event){
             event.preventDefault();
+
         }
         const Form =() => (
-            <form onSubmit={handelSubmit}>
-                <input/>
+        <form onSubmit={handelSubmit}>
+                <input value={Hit}/>
                 <input/>
                 <button> Submit </button>
                 </form>
-        )
+                )
         const App = () => (
             <>
             <hr/>
